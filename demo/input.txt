@@ -1,0 +1,2 @@
+we will have a picnic if it is a sunny day tomorrow .	(ROOT (S (NP (PRP we)) (VP (MD will) (VP (VB have) (NP (DT a) (NN picnic)) (SBAR (IN if) (S (NP (PRP it)) (VP (VBZ is) (NP (DT a) (JJ sunny) (NN day)) (NP (NN tomorrow))))))) (. .)))
+can you adjust the cameras ?	(ROOT (SQ (MD can) (NP (PRP you)) (VP (VB adjust) (NP (DT the) (NNS cameras))) (. ?)))

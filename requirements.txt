@@ -1,0 +1,6 @@
+torch>=1.2.0
+nltk>=3.4.5
+numpy
+tqdm
+ipdb
+h5py
