@@ -1,6 +1,6 @@
 ## SynPG
 
-Code for our EACL-2021 paper "Generating Syntactically Controlled Paraphrases without Using Annotated Parallel Pairs".
+Code for our EACL-2021 paper ["Generating Syntactically Controlled Paraphrases without Using Annotated Parallel Pairs"](https://arxiv.org/abs/2101.10579).
 
 If you find that the code is useful in your research, please consider citing our paper.
 
@@ -96,4 +96,4 @@ If you find that the code is useful in your research, please consider citing our
     
 ### Author
 
-Kuan-Hao Huang / [@ej0cl6](http://ej0cl6.github.io/)
+Kuan-Hao Huang / [@ej0cl6](https://khhuang.me/)
