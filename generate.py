@@ -87,7 +87,7 @@ def generate(sent, synt, tmpls, synpg_model, pg_model, args):
         for i in range((len(tmpls))):
             parse_idx = parse_idxs[i].cpu().numpy()
             eos_pos = np.where(parse_idx==dictionary.word2idx["<eos>"])[0]
-            eos_pos = eos_pos[0]+1 if len(eos_pos) > 0 else len(idx)
+            eos_pos = eos_pos[0]+1 if len(eos_pos) > 0 else len(parse_idx)
             synts[i, 1:eos_pos+1] = parse_idx[:eos_pos]
             
         synts = torch.from_numpy(synts).cuda()
