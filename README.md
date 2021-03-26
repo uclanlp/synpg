@@ -13,7 +13,11 @@ If you find that the code is useful in your research, please consider citing our
     }
 
 ### Setup 
-    $ pip install -r requirements.txt
+
+  - Python=3.7.10
+  ```
+  $ pip install -r requirements.txt
+  ```
     
 ### Pretrained Models
 
