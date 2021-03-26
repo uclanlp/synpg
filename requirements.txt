@@ -1,6 +1,6 @@
-torch>=1.2.0
-nltk>=3.4.5
-numpy
+torch==1.2.0
+nltk==3.4.5
+numpy==1.18.1
 tqdm
 ipdb
 h5py
