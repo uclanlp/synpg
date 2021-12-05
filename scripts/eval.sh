@@ -15,4 +15,4 @@ python eval_generate.py \
   --temp 0.5 \
   --seed 0 \
   
-python eval_calculate_bleu.py
+python eval_calculate_bleu.py --ref ./eval/target_sents.txt --input ./eval/outputs.txt
