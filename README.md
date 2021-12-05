@@ -27,7 +27,7 @@ If you find that the code is useful in your research, please consider citing our
 ### Demo
 
   - Download [pretrained SynPG](https://drive.google.com/file/d/1HQGxFb-MW8vnnLRVSOTv9jMRm6HZvYsI/view?usp=sharing) or [Pretrained SynPG-Large](https://drive.google.com/file/d/16jfqXUq0bojYIEv-D_-i5SunHn-Qarw5/view?usp=sharing) as well as [pretrained parse generator](https://drive.google.com/file/d/1XkWpQC1gny6ieYCHS2HIyVXAMR0SUFqi/view?usp=sharing), and put them to `./model`
-  - Run `demo.sh` or the following command to generate `demo/output.txt`
+  - Run `scripts/demo.sh` or the following command to generate `demo/output.txt`
   ```
   python generate.py \
       --synpg_model_path ./model/pretrained_synpg.pt \
@@ -49,7 +49,7 @@ If you find that the code is useful in your research, please consider citing our
 
   - Download [data](https://drive.google.com/file/d/1OrQjD-TcSR83LtTxXCVOemldwOILtn8e/view?usp=sharing) and put them under `./data/` 
   - Download [glove.840B.300d.txt](http://nlp.stanford.edu/data/glove.840B.300d.zip) and put it under `./data/` 
-  - Run `train_synpg.sh` or the following command to train SynPG
+  - Run `scripts/train_synpg.sh` or the following command to train SynPG
   
   ```
   python train_synpg.py \
@@ -75,7 +75,7 @@ If you find that the code is useful in your research, please consider citing our
       --temp 0.5 \
       --seed 0
   ```
-  - Run `train_parse_generator.sh` or the following command to train the parse generator
+  - Run `scripts/train_parse_generator.sh` or the following command to train the parse generator
   ```
   python train_parse_generator.py \
       --model_dir ./model \
@@ -97,7 +97,39 @@ If you find that the code is useful in your research, please consider citing our
       --temp 0.5 \
       --seed 0
   ```
-    
+  
+ 
+### Evaluating
+
+  - Download [testing data](https://drive.google.com/file/d/107vLMJij7v2UyaDOv6CE_d9aaviMbi8H/view?usp=sharing) and put them under `./data/` 
+  - Run `scripts/eval.sh` or the following command to evaluate SynPG
+
+  ```
+  python eval_generate.py \
+    --test_data ./data/test_data_mrpc.h5 \
+    --dictionary_path ./data/dictionary.pkl \
+    --model_path ./model/pretrained_synpg.pt \
+    --output_dir ./eval/ \
+    --bpe_codes ./data/bpe.codes \
+    --bpe_vocab ./data/vocab.txt \
+    --bpe_vocab_thresh 50 \
+    --max_sent_len 40 \
+    --max_synt_len 160 \
+    --word_dropout 0.0 \
+    --batch_size 64 \
+    --temp 0.5 \
+    --seed 0 \
+ 
+  python eval_calculate_bleu.py --ref ./eval/target_sents.txt --input ./eval/outputs.txt
+  ```
+  
+The BLEU scores should be similar to the following.
+
+|             | MRPC |  PAN | Quora |
+|-------------|:----:|:----:|:-----:|
+| SynPG       | 26.2 | 27.3 |  33.2 |
+| SynPG-Large | 36.2 | 27.1 |  34.7 |
+  
 ### Author
 
 Kuan-Hao Huang / [@ej0cl6](https://khhuang.me/)
