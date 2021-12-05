@@ -5,8 +5,7 @@ Code for our EACL-2021 paper ["Generating Syntactically Controlled Paraphrases w
 If you find that the code is useful in your research, please consider citing our paper.
 
     @inproceedings{Huang2021synpg,
-        author    = {Kuan-Hao Huang and
-                     Kai-Wei Chang},
+        author    = {Kuan-Hao Huang and Kai-Wei Chang},
         title     = {Generating Syntactically Controlled Paraphrases without Using Annotated Parallel Pairs},
         booktitle = {Proceedings of the Conference of the European Chapter of the Association for Computational Linguistics (EACL)},
         year      = {2021},
@@ -129,6 +128,47 @@ The BLEU scores should be similar to the following.
 |-------------|:----:|:----:|:-----:|
 | SynPG       | 26.2 | 27.3 |  33.2 |
 | SynPG-Large | 36.2 | 27.1 |  34.7 |
+
+
+### Fine-Tuning
+
+One main advantage of SynPG is that SynPG learns the paraphrase generation model without using any paraphrase pairs. Therefore, it is possible to fine-tune SynPG with the texts (without using the ground truth paraphrases) in the target domain when those texts are available. This fine-tuning step would significantly improve the quality of paraphrase generation in the target domain, as shown in our [paper](https://arxiv.org/abs/2101.10579).
+
+  - Download [testing data](https://drive.google.com/file/d/107vLMJij7v2UyaDOv6CE_d9aaviMbi8H/view?usp=sharing) and put them under `./data/` 
+  - Run `scripts/finetune_synpg.sh` or the following command to finetune SynPG
+
+  ```
+  python finetune_synpg.py \
+    --model_dir ./model_finetune \
+    --model_path ./model/pretrained_synpg.pt \
+    --output_dir ./output_finetune \
+    --bpe_codes_path ./data/bpe.codes \
+    --bpe_vocab_path ./data/vocab.txt \
+    --bpe_vocab_thresh 50 \
+    --dictionary_path ./data/dictionary.pkl \
+    --train_data_path ./data/test_data_mrpc.h5 \
+    --valid_data_path ./data/test_data_mrpc.h5 \
+    --max_sent_len 40 \
+    --max_synt_len 160 \
+    --word_dropout 0.4 \
+    --n_epoch 50 \
+    --batch_size 64 \
+    --lr 1e-4 \
+    --weight_decay 1e-5 \
+    --log_interval 250 \
+    --gen_interval 5000 \
+    --save_interval 10000 \
+    --temp 0.5 \
+    --seed 0
+  ```
+  
+We can observe the significant improvement on BLEU scores from the table below.
+
+|                 | MRPC |  PAN | Quora |
+|-----------------|:----:|:----:|:-----:|
+| SynPG           | 26.2 | 27.3 |  33.2 |
+| SynPG-Large     | 36.2 | 27.1 |  34.7 |
+| SynPG-Fine-Tune | 48.7 | 37.7 |  49.8 |
   
 ### Author
 
