@@ -19,13 +19,13 @@ If you find that the code is useful in your research, please consider citing our
   ```
     
 ### Pretrained Models
-  - [Pretrained SynPG](https://drive.google.com/file/d/1HQGxFb-MW8vnnLRVSOTv9jMRm6HZvYsI/view?usp=sharing)
-  - [Pretrained SynPG-Large](https://drive.google.com/file/d/16jfqXUq0bojYIEv-D_-i5SunHn-Qarw5/view?usp=sharing)
-  - [Pretrained parse generator](https://drive.google.com/file/d/1XkWpQC1gny6ieYCHS2HIyVXAMR0SUFqi/view?usp=sharing)
+  - [Pretrained SynPG](https://drive.google.com/file/d/1NAIpoVhCn_K5aSBKdW69mKoHx6vy4xW9/view?usp=sharing)
+  - [Pretrained SynPG-Large](https://drive.google.com/file/d/10dy8z269KpPt60EOARUy-ba1f9tZBsaE/view?usp=sharing)
+  - [Pretrained parse generator](https://drive.google.com/file/d/1V1hp7MU6GB2mseU41526dS7Zj1snAoP_/view?usp=sharing)
   
 ### Demo
 
-  - Download [pretrained SynPG](https://drive.google.com/file/d/1HQGxFb-MW8vnnLRVSOTv9jMRm6HZvYsI/view?usp=sharing) or [Pretrained SynPG-Large](https://drive.google.com/file/d/16jfqXUq0bojYIEv-D_-i5SunHn-Qarw5/view?usp=sharing) as well as [pretrained parse generator](https://drive.google.com/file/d/1XkWpQC1gny6ieYCHS2HIyVXAMR0SUFqi/view?usp=sharing), and put them to `./model`
+  - Download [pretrained SynPG](https://drive.google.com/file/d/1NAIpoVhCn_K5aSBKdW69mKoHx6vy4xW9/view?usp=sharing) or [Pretrained SynPG-Large](https://drive.google.com/file/d/10dy8z269KpPt60EOARUy-ba1f9tZBsaE/view?usp=sharing) as well as [pretrained parse generator](https://drive.google.com/file/d/1V1hp7MU6GB2mseU41526dS7Zj1snAoP_/view?usp=sharing), and put them to `./model`
   - Run `scripts/demo.sh` or the following command to generate `demo/output.txt`
   ```
   python generate.py \
@@ -46,7 +46,7 @@ If you find that the code is useful in your research, please consider citing our
     
 ### Training
 
-  - Download [data](https://drive.google.com/file/d/1OrQjD-TcSR83LtTxXCVOemldwOILtn8e/view?usp=sharing) and put them under `./data/` 
+  - Download [data](https://drive.google.com/file/d/13qKcaVzRomGn4BqKhTWDDqGG-tbaaLX-/view?usp=sharing) and put them under `./data/` 
   - Download [glove.840B.300d.txt](http://nlp.stanford.edu/data/glove.840B.300d.zip) and put it under `./data/` 
   - Run `scripts/train_synpg.sh` or the following command to train SynPG
   
@@ -100,7 +100,7 @@ If you find that the code is useful in your research, please consider citing our
  
 ### Evaluating
 
-  - Download [testing data](https://drive.google.com/file/d/107vLMJij7v2UyaDOv6CE_d9aaviMbi8H/view?usp=sharing) and put them under `./data/` 
+  - Download [testing data](https://drive.google.com/file/d/1X6quKTwgr3lOJTIIi0Q8VDNW_SK3_Yjh/view?usp=sharing) and put them under `./data/` 
   - Run `scripts/eval.sh` or the following command to evaluate SynPG
 
   ```
@@ -134,7 +134,7 @@ The BLEU scores should be similar to the following.
 
 One main advantage of SynPG is that SynPG learns the paraphrase generation model without using any paraphrase pairs. Therefore, it is possible to fine-tune SynPG with the texts (without using the ground truth paraphrases) in the target domain when those texts are available. This fine-tuning step would significantly improve the quality of paraphrase generation in the target domain, as shown in our [paper](https://arxiv.org/abs/2101.10579).
 
-  - Download [testing data](https://drive.google.com/file/d/107vLMJij7v2UyaDOv6CE_d9aaviMbi8H/view?usp=sharing) and put them under `./data/` 
+  - Download [testing data](https://drive.google.com/file/d/1X6quKTwgr3lOJTIIi0Q8VDNW_SK3_Yjh/view?usp=sharing) and put them under `./data/` 
   - Run `scripts/finetune_synpg.sh` or the following command to finetune SynPG
 
   ```
